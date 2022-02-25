@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController // Se establece que la clase es de tipo controlador
 @RequestMapping("/api") // Dirección del donde se pueden usar los métodos de la clase
+@CrossOrigin(origins = "*") // Se establece el origen de esta forma por la política de CORS
 public class TodoController {
 
     @Autowired // Instancia automáticamente TodoService
     private TodoService service;
 
-    @GetMapping(path = "/todo") // Petición GET
+    @GetMapping(path = "/todos") // Petición GET
     public Iterable<Todo> listByID() {
         return service.listByID();
     }
